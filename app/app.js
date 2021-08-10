@@ -23,8 +23,11 @@ app.get("/registration/:code", function(req, res) {
 
 // Add /registrations endpoint
 app.get("/registrations", function(req, res) {
+  //Call getregistrations on data
+  data.getRegistrations(function(registrations) {
   // Return "All registrations"
-  res.send("All registrations");
+  res.json(registrations);
+});
 });
 
 // Start listening on port 3000
