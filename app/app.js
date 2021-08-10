@@ -1,7 +1,7 @@
 "use strict";
 
-// The application layer uses registration classes
-const registration = require("../tissuebank.js");
+// The application layer uses tissuebank classes
+const tissuebank = require("../tissuebank.js");
 
 // The application layer talks to the data layer
 const data = require("../data/data.js");
