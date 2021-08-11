@@ -34,7 +34,26 @@ exports.getRegistration = function(callback) {
             // This code will push resgistrations to array created above
             registration.push(reg);
         }
-        // Execute callback function on prescriptions 
+        // Execute callback function on registrations 
         callback(registration);
     });
 };
+
+/**
+ // Export getregistration function
+exports.getRegistration = function(Animalcode, callback) {
+    // Create SQL statement
+    var sql = `
+        SELECT * FROM TissueBank
+        WHERE code = '${Animalcode}'`;
+    // Execute query. Only one row returned.
+    db.get(sql, function(err, row) {
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create a registration object
+        var registration = new tissuebank.Registration(row.Animalcode, row.Species);
+        // Return registration
+        callback(registration);
+    });
+};**/
