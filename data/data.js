@@ -14,27 +14,27 @@ var db = new sqlite3.Database("data/tissuebank.db", function(err) {
     console.log("Connected to tissuebank database.");
 });
 
-// This will Export getRegistrations function
-exports.getRegistrations = function(callback) {
-    // Creating SQL statement for Registrations
-    var sql = `SELECT * FROM Registrations `;
+// This will Export getRegistration function
+exports.getRegistration = function(callback) {
+    // Creating SQL statement for Registration
+    var sql = `SELECT * FROM TissueBank `;
 
-    // This will execute the query and return all registrations
+    // This will execute the query and return all registration
     db.all(sql, function(err, rows) {
         // This will check if there is an error within the code
         if (err) {
             return console.error(err.message);
         }
-        // Create an array of Registrations
-        var registrations = [];
-        // Loop through rows to create Registrations objects
+        // Create an array of Registration
+        var registration = [];
+        // Loop through rows to create Registration objects
         for (var row of rows) {
-            // Create Registrations object
-            var reg = new tissuebank.registrations(row.Animalcode, row.Species, row.GeneticBackground, row.Sex, row.DOB, row.MethodofEuthanasia, row.Location, row.Availability);
+            // Create Registration object
+            var reg = new tissuebank.Registration(row.Animalcode, row.Species, row.GeneticBackground, row.Sex, row.DOB, row.MethodofEuthanasia, row.Location, row.Availability);
             // This code will push resgistrations to array created above
-            registrations.push(reg);
+            registration.push(reg);
         }
         // Execute callback function on prescriptions 
-        callback(registrations);
+        callback(registration);
     });
 };
