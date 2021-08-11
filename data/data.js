@@ -17,7 +17,7 @@ var db = new sqlite3.Database("data/tissuebank.db", function(err) {
 // This will Export getRegistration function
 exports.getRegistration = function(callback) {
     // Creating SQL statement for Registration
-    var sql = `SELECT * FROM TissueBank `;
+    var sql = `SELECT * FROM Tissuebank `;
 
     // This will execute the query and return all registration
     db.all(sql, function(err, rows) {
@@ -39,21 +39,21 @@ exports.getRegistration = function(callback) {
     });
 };
 
-/**
- // Export getregistration function
-exports.getRegistration = function(Animalcode, callback) {
+// Export getregistration function
+exports.getRegistration = function(code, callback) {
     // Create SQL statement
     var sql = `
-        SELECT * FROM TissueBank
-        WHERE code = '${Animalcode}'`;
+        SELECT * FROM Tissuebank
+        WHERE Animalcode = '${code}'`;
     // Execute query. Only one row returned.
     db.get(sql, function(err, row) {
         if (err) {
             return console.error(err.message);
         }
         // Create a registration object
-        var registration = new tissuebank.Registration(row.Animalcode, row.Species);
+        var registration = new tissuebank.Registration(row.Animalcode, row.Species, row.GeneticBackground, row.Sex, row.DOB, row.MethodofEuthanasia, row.Location, row.Availability);
         // Return registration
         callback(registration);
     });
-};**/
+};
+

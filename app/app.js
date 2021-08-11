@@ -15,15 +15,14 @@ var app = express();
 // Add static files location
 app.use(express.static("static"));
 
-/**
- * // Add a single /registration endpoint
-app.get("/registration/:Animalcode", function(req, res) {
+// Add a single /registration endpoint
+app.get("/registration/:code", function(req, res) {
   // Call getRegistration on data
-  data.getRegistration(req.params.Animalcode, function(registration) {
+  data.getRegistration(req.params.code, function(registration) {
   // Return "Registration <code>"
-  res.json(registration);
+      res.json(registration);
   });
-});**/
+});
 
 // Add /registration endpoint
 app.get("/registration", function(req, res) {
