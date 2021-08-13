@@ -1,6 +1,6 @@
 "use strict";
 
-class Registration {
+class Registrations {
   // Code of animal tissue 
   Animalcode;
   // Species of the animal

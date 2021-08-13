@@ -15,7 +15,7 @@ var db = new sqlite3.Database("data/tissuebank.db", function(err) {
 });
 
 // This will Export getRegistration function
-exports.getRegistration = function(callback) {
+exports.getRegistrations = function(callback) {
     // Creating SQL statement for Registration
     var sql = `SELECT * FROM Tissuebank `;
 
@@ -26,20 +26,20 @@ exports.getRegistration = function(callback) {
             return console.error(err.message);
         }
         // Create an array of Registration
-        var registration = [];
+        var registrations = [];
         // Loop through rows to create Registration objects
         for (var row of rows) {
             // Create Registration object
-            var reg = new tissuebank.Registration(row.Animalcode, row.Species, row.GeneticBackground, row.Sex, row.DOB, row.MethodofEuthanasia, row.Location, row.Availability);
+            var reg = new tissuebank.Registrations(row.Animalcode, row.Species, row.GeneticBackground, row.Sex, row.DOB, row.MethodofEuthanasia, row.Location, row.Availability);
             // This code will push registrations to array created above
-            registration.push(reg);
+            registrations.push(reg);
         }
         // Execute callback function on registrations 
-        callback(registration);
+        callback(registrations);
     });
-};
+}; 
 
-// Export getregistration function
+//Export getregistration function
 exports.getRegistration = function(code, callback) {
     // Create SQL statement
     var sql = `
@@ -51,9 +51,10 @@ exports.getRegistration = function(code, callback) {
             return console.error(err.message);
         }
         // Create a registration object
-        var registration = new tissuebank.Registration(row.Animalcode, row.Species);
+        var registration = new tissuebank.Registrations(row.Animalcode, row.Species, row.GeneticBackground, row.Sex, row.DOB, row.MethodofEuthanasia, row.Location, row.Availability);
         // Return registration
         callback(registration);
     });
-};
+}; 
+
 

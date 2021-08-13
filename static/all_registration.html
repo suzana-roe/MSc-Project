@@ -23,17 +23,33 @@
             <th>Availability</th>
         </tr>
     </thead>
-    <tr ng-repeat=" registration in registration">
+        <tr ng-repeat=" registration in registrations">
         
-        <td> {{ registration.Animalcode }}</td>
-        <td> {{ registration.Species }}</td>
-        <td> {{ registration.GeneticBackground }}</td>
-        <td> {{ registration.Sex }}</td> 
-        <td> {{ registration.DOB }}</td> 
-        <td> {{ registration.MethodofEuthanasia }}</td> 
-        <td> {{ registration.Location }}</td> 
-        <td> {{ registration.Availability }}</td> 
-    </tr>
+            <td> {{ registration.Animalcode }}</td>
+            <td> {{ registration.Species }}</td>
+            <td> {{ registration.GeneticBackground }}</td>
+            <td> {{ registration.Sex }}</td> 
+            <td> {{ registration.DOB }}</td> 
+            <td> {{ registration.MethodofEuthanasia }}</td> 
+            <td> {{ registration.Location }}</td> 
+            <td> {{ registration.Availability }}</td> 
+    
+            <td><input type="text" ng-model="registration.Location"></td>
+            <td><input type="text" ng-model="registration.Availability"></td>
+            <td><input type="button" ng-click="selectregistration(registration)" value="Select"></td>
+            <td><input type="button" ng-click="updateregistration(registration)" value="Update"></td>
+            <td><input type="button" ng-click="deleteregistration(registration)" value="Delete"></td>
+        <tr>
+    <td><input type="text" ng-model="new_registration.Animalcode" placeholder='Animal code'></td>
+    <td><input type="text" ng-model="new_registration.Species" placeholder='Species'></td>
+    <td><input type="text" ng-model="new_registration.GeneticBackground" placeholder= 'Genetic Background'></td>
+    <td><input type="text" ng-model="new_registration.Sex" placeholder='Sex'></td>
+    <td><input type="text" ng-model="new_registration.DOB" placeholder='DOB'></td>
+    <td><input type="text" ng-model="new_registration.MethodofEuthanasia" placeholder='Method of Euthanasia'></td>
+    <td><input type="text" ng-model="new_registration.Location" placeholder='Location'></td>
+    <td><input type="text" ng-model="new_registration.Availability" placeholder='Availability'></td>
+    <td><input type="button" ng-click="createregistration()" value="Create"></td>
+</tr>
 </table>
 </div> 
 </body>

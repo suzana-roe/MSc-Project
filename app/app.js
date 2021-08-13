@@ -25,11 +25,11 @@ app.get("/registration/:code", function(req, res) {
 });
 
 // Add /registration endpoint
-app.get("/registration", function(req, res) {
+app.get("/registrations", function(req, res) {
 // Call getStudents on data
-  data.getRegistration(function(registration) {
+  data.getRegistrations(function(registrations) {
   // Return "All registration"
-      res.json(registration);
+      res.json(registrations);
   });
 });
 
