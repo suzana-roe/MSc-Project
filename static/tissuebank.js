@@ -1,6 +1,6 @@
 "use strict";
 
-exports.Registration = class {
+class Registration {
   // Code of animal tissue 
   Animalcode;
   // Species of the animal

@@ -31,7 +31,7 @@ exports.getRegistration = function(callback) {
         for (var row of rows) {
             // Create Registration object
             var reg = new tissuebank.Registration(row.Animalcode, row.Species, row.GeneticBackground, row.Sex, row.DOB, row.MethodofEuthanasia, row.Location, row.Availability);
-            // This code will push resgistrations to array created above
+            // This code will push registrations to array created above
             registration.push(reg);
         }
         // Execute callback function on registrations 
@@ -39,7 +39,8 @@ exports.getRegistration = function(callback) {
     });
 };
 
-// Export getregistration function
+/**
+ * // Export getregistration function
 exports.getRegistration = function(code, callback) {
     // Create SQL statement
     var sql = `
@@ -51,9 +52,9 @@ exports.getRegistration = function(code, callback) {
             return console.error(err.message);
         }
         // Create a registration object
-        var registration = new tissuebank.Registration(row.Animalcode, row.Species, row.GeneticBackground, row.Sex, row.DOB, row.MethodofEuthanasia, row.Location, row.Availability);
+        var registration = new tissuebank.Registration(row.Animalcode, row.Species);
         // Return registration
         callback(registration);
     });
-};
+};**/
 
