@@ -39,8 +39,7 @@ exports.getRegistration = function(callback) {
     });
 };
 
-/**
- * // Export getregistration function
+// Export getregistration function
 exports.getRegistration = function(code, callback) {
     // Create SQL statement
     var sql = `
@@ -56,5 +55,5 @@ exports.getRegistration = function(code, callback) {
         // Return registration
         callback(registration);
     });
-};**/
+};
 
