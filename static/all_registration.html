@@ -5,6 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
     <script src="tissuebank.js"></script>
     <script src="all_registration.js"></script> 
+    <link rel="stylesheet" href="data_style.css">
   </head>
   <body>
     <h1>Archived Tissue Registrations</h1>
@@ -13,33 +14,30 @@
         <thead>
         <tr>
            
-            <th>Animalcode</th>
-            <th>Species</th>
-            <th>Genetic Background</th>
-            <th>Sex</th>
-            <th>DOB</th>
-            <th>Method of Euthanasia</th>
-            <th>Location</th>
-            <th>Availability</th>
+        <th>Animal code</th>
+        <th>Species</th>
+        <th>Genetic Background</th>
+        <th>Sex</th>
+        <th>DOB</th>
+        <th>Method of Euthanasia</th>
+        <th>Location</th>
+        <th>Availability</th>
         </tr>
     </thead>
-        <tr ng-repeat=" registration in registrations">
+      <tr ng-repeat=" registration in registrations">
         
-            <td> {{ registration.Animalcode }}</td>
-            <td> {{ registration.Species }}</td>
-            <td> {{ registration.GeneticBackground }}</td>
-            <td> {{ registration.Sex }}</td> 
-            <td> {{ registration.DOB }}</td> 
-            <td> {{ registration.MethodofEuthanasia }}</td> 
-            <td> {{ registration.Location }}</td> 
-            <td> {{ registration.Availability }}</td> 
+        <td> {{ registration.Animalcode }}</td>
+        <td> {{ registration.Species }}</td>
+        <td> {{ registration.GeneticBackground }}</td>
+        <td> {{ registration.Sex }}</td> 
+        <td> {{ registration.DOB }}</td> 
+        <td> {{ registration.MethodofEuthanasia }}</td> 
+        <td> {{ registration.Location }}</td> 
     
-            <td><input type="text" ng-model="registration.Location"></td>
-            <td><input type="text" ng-model="registration.Availability"></td>
-            <td><input type="button" ng-click="selectregistration(registration)" value="Select"></td>
-            <td><input type="button" ng-click="updateregistration(registration)" value="Update"></td>
-            <td><input type="button" ng-click="deleteregistration(registration)" value="Delete"></td>
-        <tr>
+        <td><input type="text" ng-model="registration.Availability"></td>
+        <td><input type="button" ng-click="updateregistration(registration)" value="Update"></td>
+        <td><input type="button" ng-click="deleteRegistration(registration.Animalcode)" value="Delete"></td>
+      <tr>
     <td><input type="text" ng-model="new_registration.Animalcode" placeholder='Animal code'></td>
     <td><input type="text" ng-model="new_registration.Species" placeholder='Species'></td>
     <td><input type="text" ng-model="new_registration.GeneticBackground" placeholder= 'Genetic Background'></td>
@@ -48,7 +46,7 @@
     <td><input type="text" ng-model="new_registration.MethodofEuthanasia" placeholder='Method of Euthanasia'></td>
     <td><input type="text" ng-model="new_registration.Location" placeholder='Location'></td>
     <td><input type="text" ng-model="new_registration.Availability" placeholder='Availability'></td>
-    <td><input type="button" ng-click="createregistration()" value="Create"></td>
+    <td><input type="button" ng-click="createRegistration()" value="Add"></td>
 </tr>
 </table>
 </div> 

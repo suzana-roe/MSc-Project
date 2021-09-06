@@ -57,4 +57,25 @@ exports.getRegistration = function(code, callback) {
     });
 }; 
 
+// Add a tissue to the database
+exports.addRegistration = function(registration, callback) {
+    // Create SQL insert statement
+    var sql = `INSERT INTO Registrations VALUES ('${registration.Animalcode}', '${registration.Species}','${registration.GeneticBackground}','${registration.Sex}','${registration.DOB}','${registration.MethodofEuthanasia}', '${registration.Location}', '${registration.Availability}')`;
+    // Execute SQL insert statement
+    db.exec(sql, function(err) {
+    // Once completed, execute callback function
+     callback();
+    });
+};
 
+//Adding  a deleteRegistration function
+// This code will delete a tissue from the database
+exports.deleteRegistration = function(Animalcode, callback) {
+    // SQL delete statement
+    var sql = `DELETE FROM Tissuebank WHERE Animalcode='${code}'`;
+    // This code will execute the above SQL delete statement
+    db.exec(sql, function(err) {
+      // After the SQL statement, a callback function will be executed
+        callback();
+        });
+    };

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Archived Tissue Database</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+    <script src="tissuebank.js"></script>
+    <script src="all_registration.js"></script> 
+    <link rel="stylesheet" href="data_style.css">
+  </head>
+  <body>
+    <h1>Archived Tissue Registrations</h1>
+    <div ng-app="TBApp" ng-controller="registrationController"> 
+    <table class = customTable>
+        <thead>
+        <tr>
+           
+        <th>Animal code</th>
+        <th>Species</th>
+        <th>Genetic Background</th>
+        <th>Sex</th>
+        <th>DOB</th>
+        <th>Method of Euthanasia</th>
+        <th>Location</th>
+        <th>Availability</th>
+        </tr>
+    </thead>
+      <tr ng-repeat=" registration in registrations">
+        
+        <td> {{ registration.Animalcode }}</td>
+        <td> {{ registration.Species }}</td>
+        <td> {{ registration.GeneticBackground }}</td>
+        <td> {{ registration.Sex }}</td> 
+        <td> {{ registration.DOB }}</td> 
+        <td> {{ registration.MethodofEuthanasia }}</td> 
+        <td> {{ registration.Location }}</td> 
+        <td> {{ registration.Availability }}</td> 
+      </tr>
+</table>
+</div> 
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Archived Tissue Booking System</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+    <script src="tissuebank.js"></script>
+    <script src="all_registration.js"></script> 
+    <link rel="stylesheet" href="data_style.css">
+   
+  </head>
+  <body>
+    <h1>Archived Tissue Booking System</h1>
+    <div ng-app="TBApp" ng-controller="registrationController"> 
+    <form action="all_registration.js" method="post">
+  <div class="elem-group">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="visitor_name" placeholder="John Doe" pattern=[A-Z\sa-z]{3,20} required>
+  </div>
+  <div class="elem-group">
+    <label for="email">Your E-mail</label>
+    <input type="email" id="email" name="visitor_email" placeholder="john.doe@email.com" required>
+  </div>
+  <div class="elem-group">
+    <label for="phone">Your Phone</label>
+    <input type="tel" id="phone" name="visitor_phone" placeholder="498-348-3872" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>
+  </div>
+  <hr>
+  <div class="elem-group">
+    <label for="room-selection">Select Archived Tissue</label>
+    <select id="room-selection" name="room_preference" required>
+        <option value="">Choose a tissue from the List</option>
+        <option value="registration.Animalcode">Animalcode | Species</option>
+        <option ng-repeat=" registration in registrations"</option>
+          <fd> {{ registration.Animalcode }}</fd>
+          <fd> {{ registration.Species }}</fd>
+    </select>
+  </div>
+  <div class="elem-group">
+    <label for="room-selection">Select Booking Slot</label>
+    <select id="room-selection" name="room_preference" required>
+        <option value="">Choose a slot from the List</option>
+        <option value="registration.Availability">Animalcode | Species | Availability</option>
+        <option ng-repeat=" registration in registrations"</option>
+          <fd> {{ registration.Animalcode }}</fd>
+          <fd> {{ registration.Species }}</fd>
+          <fd> {{ registration.Availability }}</fd>
+    </select>
+  <hr>
+  <div class="elem-group inlined">
+    <label for="child">Quantity</label>
+    <input type="number" id="child" name="total_children" placeholder="2" min="0" required>
+  </div>
+  <hr>
+  <div class="elem-group">
+    <label for="message">Anything Else?</label>
+    <textarea id="message" name="visitor_message" placeholder="Tell us anything else that might be important." required></textarea>
+  </div>
+  <button type="submit">Request Tissue</button>
+</form>
